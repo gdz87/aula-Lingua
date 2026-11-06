@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GONGBU</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      hanji: '#F7F5F0',
+      sumi: { DEFAULT:'#1A1A1A', muted:'#555555', soft:'#333333' },
+      salvia: { DEFAULT:'#88B078', dark:'#3A5A40', soft:'#EAF0E8', deep:'#233827' }
+    },
+    fontFamily: {
+      serif: ['"Noto Serif KR"','Georgia','serif'],
+      sans: ['"Plus Jakarta Sans"','system-ui','sans-serif']
+    }
+  }}
+}
+</script>
+<style>
+  body{background-color:#F7F5F0;color:#1A1A1A;font-family:'Plus Jakarta Sans',system-ui,sans-serif;overflow-x:hidden}
+  .bg-paper-texture{background-color:#F7F5F0;background-image:radial-gradient(rgba(26,26,26,.09) .4px,transparent .4px);background-size:24px 24px}
+  .enso-svg-path{stroke-dasharray:1000;stroke-dashoffset:1000;animation:drawEnso 2.4s cubic-bezier(.16,1,.3,1) forwards}
+  @keyframes drawEnso{to{stroke-dashoffset:0}}
+  .card-zen-shadow{box-shadow:0 10px 30px -5px rgba(26,26,26,.05)}
+  .card-featured-shadow{box-shadow:0 20px 45px -10px rgba(58,90,64,.22)}
+  .brush-line{position:relative;display:inline-block}
+  .brush-line::after{content:'';position:absolute;bottom:-2px;left:-1%;width:102%;height:.42em;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'%3E%3Cpath d='M5 13 C 70 4 150 18 220 9 S 292 6 297 12' fill='none' stroke='%2388B078' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E") center/100%25 100%25 no-repeat;z-index:-1}
+  :focus-visible{outline:3px solid #3A5A40;outline-offset:3px;border-radius:4px}
+  @media(prefers-reduced-motion:reduce){.enso-svg-path{animation:none;stroke-dashoffset:0}.scroll-smooth{scroll-behavior:auto}}
+</style>
+</head>
+<body class="antialiased selection:bg-salvia-dark selection:text-white bg-paper-texture">
+
+<!-- ================= HEADER ================= -->
+<header class="sticky top-0 z-40 bg-hanji/90 backdrop-blur-md border-b border-sumi/10">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 h-20 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-3 shrink-0">
+      <span class="w-11 h-11 rounded-full border-2 border-sumi flex items-center justify-center bg-white shadow-sm">
+        <span class="font-serif text-sm font-black text-sumi">공부</span>
+      </span>
+      <span class="flex flex-col leading-none">
+        <span class="font-serif text-xl font-black text-sumi">GONGBU</span>
+        <span class="text-[9px] tracking-[.18em] uppercase font-bold text-salvia-dark mt-1">Educación Vivencial</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-sumi/80">
+      <a href="#programas" class="hover:text-salvia-dark transition">Programas</a>
+      <a href="#metodo" class="hover:text-salvia-dark transition">Método</a>
+      <a href="#plataforma" class="hover:text-salvia-dark transition">Plataforma</a>
+      <a href="#planes" class="hover:text-salvia-dark transition">Planes</a>
+      <a href="#opiniones" class="hover:text-salvia-dark transition">Opiniones</a>
+    </nav>
+    <div class="flex items-center gap-2 shrink-0">
+      <a href="#" class="app-link hidden sm:inline-flex items-center border border-sumi/20 hover:border-salvia-dark text-sumi px-4 py-2.5 rounded-full text-xs font-extrabold transition" target="_blank" rel="noopener">Ingresar</a>
+      <button type="button" class="book-link bg-salvia-dark hover:bg-salvia-deep text-white px-5 py-2.5 rounded-full text-xs font-extrabold shadow-md transition">Agenda clase gratis</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="relative flex items-center px-5 sm:px-6 py-16 sm:py-20 overflow-hidden">
+  <div class="absolute -right-8 sm:right-2 top-1/2 -translate-y-1/2 font-serif font-black text-[34vw] sm:text-[25vw] text-salvia opacity-[0.09] select-none pointer-events-none leading-none z-0">공부</div>
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
+    <div class="lg:col-span-7 space-y-6">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-salvia-soft text-salvia-dark font-bold text-xs tracking-wide">Filosofía Coreana • Educación Vivencial</span>
+      <h1 class="font-serif text-4xl sm:text-6xl font-black text-sumi leading-[1.1]">
+        Domina un idioma <br class="hidden sm:block">
+        <span class="brush-line text-salvia-dark">viviéndolo</span>, no memorizándolo.
+      </h1>
+      <p class="text-base sm:text-lg text-sumi-muted max-w-xl leading-relaxed">
+        Inspirados en la disciplina de <strong class="font-serif text-sumi">공부 (Gongbu)</strong>, transformamos el estudio en un proceso vivo y práctico: diagnóstico preciso de tu nivel, guía personalizada y confianza real para hablar en público.
+      </p>
+      <div class="flex flex-wrap gap-3 pt-1">
+        <button type="button" class="book-link bg-salvia-dark hover:bg-salvia-deep text-white px-8 py-4 rounded-full text-sm font-extrabold shadow-lg transition">Agenda tu clase gratis →</button>
+        <a href="#" class="app-link inline-flex items-center border border-sumi/20 hover:border-salvia-dark text-sumi px-7 py-4 rounded-full text-sm font-extrabold transition" target="_blank" rel="noopener">Entrar al aplicativo</a>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-2 pt-3 text-sm font-semibold text-sumi-muted">
+        <span><span class="text-salvia-dark" aria-hidden="true">★★★★★</span> <strong class="text-sumi">4.9</strong>/5 en reseñas</span>
+        <span><strong class="text-sumi">+2.400</strong> estudiantes</span>
+        <span><strong class="text-sumi">4</strong> idiomas</span>
+      </div>
+    </div>
+
+    <!-- ENSŌ + foto -->
+    <div class="lg:col-span-5 flex flex-col items-center justify-center">
+      <div class="relative w-full max-w-sm aspect-square flex items-center justify-center">
+        <svg class="absolute inset-0 w-full h-full text-sumi -rotate-45" viewBox="0 0 400 400" aria-hidden="true">
+          <path class="enso-svg-path" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" d="M 200,30 A 170,170 0 1,1 199.9,30"/>
+        </svg>
+        <div class="w-[76%] h-[76%] rounded-full overflow-hidden relative shadow-xl border-4 border-white" style="background:linear-gradient(135deg,#88B078,#3A5A40)">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" alt="Estudiantes de GONGBU en una actividad vivencial" loading="lazy" class="w-full h-full object-cover" onerror="this.remove()">
+        </div>
+      </div>
+      <p class="mt-5 text-xs tracking-wide text-sumi-muted font-semibold text-center"><span class="font-serif text-sumi">공부 • Gongbu</span> · Estudio en movimiento</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROGRAMAS / IDIOMAS ================= -->
+<section id="programas" class="px-5 sm:px-6 py-16 sm:py-24">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-12">
+      <span class="text-xs font-bold tracking-[.2em] uppercase text-salvia-dark">Nuestros programas</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-black text-sumi mt-3">Cuatro idiomas, un mismo método</h2>
+      <p class="text-sumi-muted mt-4 leading-relaxed">Cada idioma con su ruta por niveles del Marco Común Europeo y una clase de prueba gratuita para ubicarte en el punto exacto donde estás.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <article class="group bg-white rounded-2xl border border-sumi/10 card-zen-shadow p-6 sm:p-7 transition hover:-translate-y-1 hover:border-salvia-dark/40">
+        <div class="flex items-start justify-between gap-4">
+          <span class="font-serif italic text-2xl text-salvia-dark">Hello</span>
+          <span class="text-3xl" aria-hidden="true">🇬🇧</span>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-sumi mt-3">Inglés</h3>
+        <div class="flex flex-wrap gap-1.5 mt-3">
+          <span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">A1</span><span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">A2</span><span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">B1</span><span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">B2</span><span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">C1</span><span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">C2</span>
+        </div>
+        <p class="text-sm text-sumi-muted mt-4 leading-relaxed">Enfoque conversacional y preparación de exámenes internacionales.</p>
+        <a href="#" class="app-link inline-flex items-center gap-1 text-sm font-bold text-salvia-dark mt-4 group-hover:gap-2 transition-all" target="_blank" rel="noopener">Aprender →</a>
+      </article>
+      <article class="group bg-white rounded-2xl border border-sumi/10 card-zen-shadow p-6 sm:p-7 transition hover:-translate-y-1 hover:border-salvia-dark/40">
+        <div class="flex items-start justify-between gap-4">
+          <span class="font-serif italic text-2xl text-salvia-dark">Bonjour</span>
+          <span class="text-3xl" aria-hidden="true">🇫🇷</span>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-sumi mt-3">Francés</h3>
+        <div class="flex flex-wrap gap-1.5 mt-3">
+          <span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">A1</span><span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">A2</span><span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">B1</span><span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">B2</span>
+        </div>
+        <p class="text-sm text-sumi-muted mt-4 leading-relaxed">Pronunciación y fonética cuidada desde la primera clase.</p>
+        <a href="#" class="app-link inline-flex items-center gap-1 text-sm font-bold text-salvia-dark mt-4 group-hover:gap-2 transition-all" target="_blank" rel="noopener">Aprender →</a>
+      </article>
+      <article class="group bg-white rounded-2xl border border-sumi/10 card-zen-shadow p-6 sm:p-7 transition hover:-translate-y-1 hover:border-salvia-dark/40">
+        <div class="flex items-start justify-between gap-4">
+          <span class="font-serif italic text-2xl text-salvia-dark">Olá</span>
+          <span class="text-3xl" aria-hidden="true">🇧🇷</span>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-sumi mt-3">Portugués</h3>
+        <div class="flex flex-wrap gap-1.5 mt-3">
+          <span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">A1</span><span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">A2</span><span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">B1</span>
+        </div>
+        <p class="text-sm text-sumi-muted mt-4 leading-relaxed">El idioma de los negocios con Brasil, fácil y rápido de arrancar.</p>
+        <a href="#" class="app-link inline-flex items-center gap-1 text-sm font-bold text-salvia-dark mt-4 group-hover:gap-2 transition-all" target="_blank" rel="noopener">Aprender →</a>
+      </article>
+      <article class="group bg-white rounded-2xl border border-sumi/10 card-zen-shadow p-6 sm:p-7 transition hover:-translate-y-1 hover:border-salvia-dark/40">
+        <div class="flex items-start justify-between gap-4">
+          <span class="font-serif italic text-2xl text-salvia-dark">Ciao</span>
+          <span class="text-3xl" aria-hidden="true">🇮🇹</span>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-sumi mt-3">Italiano</h3>
+        <div class="flex flex-wrap gap-1.5 mt-3">
+          <span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">A1</span><span class="text-[11px] font-bold text-salvia-dark bg-salvia-soft rounded-full px-2.5 py-0.5">A2</span>
+        </div>
+        <p class="text-sm text-sumi-muted mt-4 leading-relaxed">Cultura, viajes y conversación cotidiana desde el primer día.</p>
+        <a href="#" class="app-link inline-flex items-center gap-1 text-sm font-bold text-salvia-dark mt-4 group-hover:gap-2 transition-all" target="_blank" rel="noopener">Aprender →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MÉTODO ================= -->
+<section id="metodo" class="px-5 sm:px-6 py-16 sm:py-24 bg-white/60 border-y border-sumi/10">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mx-auto text-center mb-14">
+      <span class="text-xs font-bold tracking-[.2em] uppercase text-salvia-dark">Cómo aprenderás</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-black text-sumi mt-3">Un camino que empieza en tu nivel real</h2>
+      <p class="text-sumi-muted mt-4 leading-relaxed">Ubicación precisa, avance a tu ritmo y práctica constante hasta certificarte. Cinco pasos, un recorrido.</p>
+    </div>
+    <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 list-none p-0 m-0">
+      <li class="bg-hanji rounded-2xl border border-sumi/10 p-6"><div class="w-11 h-11 rounded-full bg-salvia-soft text-salvia-dark font-serif font-black grid place-items-center">1</div><h3 class="font-serif text-lg font-bold text-sumi mt-4">Test de nivelación</h3><p class="text-sm text-sumi-muted mt-2 leading-relaxed">Una prueba corta te ubica en el nivel exacto (A1–C2). Nunca empiezas de cero si ya sabes.</p></li>
+      <li class="bg-hanji rounded-2xl border border-sumi/10 p-6"><div class="w-11 h-11 rounded-full bg-salvia-soft text-salvia-dark font-serif font-black grid place-items-center">2</div><h3 class="font-serif text-lg font-bold text-sumi mt-4">Plan a tu medida</h3><p class="text-sm text-sumi-muted mt-2 leading-relaxed">Recibes una ruta personalizada de cursos y lecciones según tu nivel y tu objetivo.</p></li>
+      <li class="bg-hanji rounded-2xl border border-sumi/10 p-6"><div class="w-11 h-11 rounded-full bg-salvia-soft text-salvia-dark font-serif font-black grid place-items-center">3</div><h3 class="font-serif text-lg font-bold text-sumi mt-4">Lecciones + práctica</h3><p class="text-sm text-sumi-muted mt-2 leading-relaxed">Video, lectura y quizzes autocalificados. Avanzas a tu ritmo y repasas lo que necesites.</p></li>
+      <li class="bg-hanji rounded-2xl border border-sumi/10 p-6"><div class="w-11 h-11 rounded-full bg-salvia-soft text-salvia-dark font-serif font-black grid place-items-center">4</div><h3 class="font-serif text-lg font-bold text-sumi mt-4">Clases en vivo</h3><p class="text-sm text-sumi-muted mt-2 leading-relaxed">Sesiones con docentes y técnicas para ganar confianza al hablar en público.</p></li>
+      <li class="bg-hanji rounded-2xl border border-sumi/10 p-6"><div class="w-11 h-11 rounded-full bg-salvia-soft text-salvia-dark font-serif font-black grid place-items-center">5</div><h3 class="font-serif text-lg font-bold text-sumi mt-4">Certificación</h3><p class="text-sm text-sumi-muted mt-2 leading-relaxed">Al completar cada nivel obtienes tu certificado de progreso dentro de la plataforma.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= PLATAFORMA ================= -->
+<section id="plataforma" class="px-5 sm:px-6 py-16 sm:py-24">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <span class="text-xs font-bold tracking-[.2em] uppercase text-salvia-dark">La plataforma</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-black text-sumi mt-3">Todo tu aprendizaje en un solo aplicativo</h2>
+      <div class="mt-8 space-y-5">
+        <div class="flex gap-4"><span class="shrink-0 w-10 h-10 rounded-full bg-salvia-soft text-salvia-dark grid place-items-center font-serif font-black">材</span><div><b class="block text-sumi font-bold">Biblioteca de materiales</b><span class="text-sm text-sumi-muted">Libros, cuadernos y audios para consultar dentro de la app.</span></div></div>
+        <div class="flex gap-4"><span class="shrink-0 w-10 h-10 rounded-full bg-salvia-soft text-salvia-dark grid place-items-center font-serif font-black">試</span><div><b class="block text-sumi font-bold">Quizzes con modo estudio</b><span class="text-sm text-sumi-muted">Autoevaluaciones a pantalla completa que registran tu nota sola.</span></div></div>
+        <div class="flex gap-4"><span class="shrink-0 w-10 h-10 rounded-full bg-salvia-soft text-salvia-dark grid place-items-center font-serif font-black">語</span><div><b class="block text-sumi font-bold">Glosario con repaso espaciado</b><span class="text-sm text-sumi-muted">Guarda palabras y memorízalas con flashcards inteligentes.</span></div></div>
+        <div class="flex gap-4"><span class="shrink-0 w-10 h-10 rounded-full bg-salvia-soft text-salvia-dark grid place-items-center font-serif font-black">室</span><div><b class="block text-sumi font-bold">Aula virtual integrada</b><span class="text-sm text-sumi-muted">Entra a tus clases en vivo y reserva sesiones 1 a 1.</span></div></div>
+        <div class="flex gap-4"><span class="shrink-0 w-10 h-10 rounded-full bg-salvia-soft text-salvia-dark grid place-items-center font-serif font-black">進</span><div><b class="block text-sumi font-bold">Progreso y calificaciones</b><span class="text-sm text-sumi-muted">Seguimiento de avance, notas, racha y XP para mantenerte motivado.</span></div></div>
+      </div>
+      <div class="flex flex-wrap gap-3 mt-8">
+        <a href="#" class="app-link bg-salvia-dark hover:bg-salvia-deep text-white px-7 py-3.5 rounded-full text-sm font-extrabold shadow-lg transition" target="_blank" rel="noopener">Ingresar al aplicativo →</a>
+        <a href="#planes" class="inline-flex items-center border border-sumi/20 hover:border-salvia-dark text-sumi px-7 py-3.5 rounded-full text-sm font-extrabold transition">Ver planes</a>
+      </div>
+    </div>
+    <!-- Laptop mock -->
+    <div class="flex justify-center">
+      <div class="w-full max-w-md">
+        <div class="bg-sumi rounded-t-2xl p-3 shadow-2xl">
+          <div class="bg-hanji rounded-lg overflow-hidden" style="aspect-ratio:16/10">
+            <div class="flex h-full text-[10px]">
+              <div class="w-10 bg-salvia-dark flex flex-col items-center gap-3 py-3 shrink-0">
+                <span class="font-serif text-white text-xs font-black">공부</span>
+                <span class="w-5 h-5 rounded bg-salvia grid place-items-center">🏠</span><span class="w-5 h-5 rounded bg-white/15">📚</span><span class="w-5 h-5 rounded bg-white/15">🎥</span>
+              </div>
+              <div class="flex-1 min-w-0 p-3 space-y-2">
+                <div class="flex justify-between items-center"><b class="font-serif text-sumi text-xs">Mi progreso</b><span class="w-4 h-4 rounded-full bg-salvia-soft"></span></div>
+                <div class="grid grid-cols-3 gap-1.5">
+                  <div class="bg-white border border-sumi/10 rounded-md p-1.5 text-center"><div class="font-serif font-bold text-sumi text-sm">6</div><div class="text-[7px] text-sumi-muted uppercase">racha</div></div>
+                  <div class="bg-white border border-sumi/10 rounded-md p-1.5 text-center"><div class="font-serif font-bold text-sumi text-sm">320</div><div class="text-[7px] text-sumi-muted uppercase">XP</div></div>
+                  <div class="bg-white border border-sumi/10 rounded-md p-1.5 text-center"><div class="font-serif font-bold text-sumi text-sm">A2</div><div class="text-[7px] text-sumi-muted uppercase">nivel</div></div>
+                </div>
+                <div class="bg-salvia-soft border border-salvia/40 rounded-lg p-2"><div class="text-[7px] uppercase font-bold text-salvia-dark tracking-wide">Continuar</div><div class="font-serif text-sumi text-[11px] font-semibold mt-0.5 mb-1.5">Past simple · Lección 3</div><div class="h-1.5 bg-white rounded-full overflow-hidden"><div class="h-full bg-salvia-dark rounded-full" style="width:62%"></div></div></div>
+                <div class="bg-white border border-sumi/10 rounded-lg p-2"><div class="flex justify-between text-[9px] font-bold text-sumi mb-1"><span>🇬🇧 English</span><span>4.2</span></div><div class="h-1.5 bg-hanji rounded-full overflow-hidden"><div class="h-full bg-salvia-dark rounded-full" style="width:84%"></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="h-3.5 bg-gradient-to-b from-neutral-300 to-neutral-400 rounded-b-xl mx-[-6%]"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLANES ================= -->
+<section id="planes" class="px-5 sm:px-6 py-16 sm:py-24 bg-white/60 border-y border-sumi/10">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mx-auto text-center mb-14">
+      <span class="text-xs font-bold tracking-[.2em] uppercase text-salvia-dark">Planes</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-black text-sumi mt-3">Elige cómo empezar</h2>
+      <p class="text-sumi-muted mt-4 leading-relaxed">Todos incluyen test de nivelación gratis y acceso al aplicativo. Cancela cuando quieras.</p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch max-w-5xl mx-auto">
+      <!-- Autónomo -->
+      <div class="bg-hanji rounded-3xl border border-sumi/10 card-zen-shadow p-8 flex flex-col">
+        <h3 class="font-serif text-2xl font-bold text-sumi">Autónomo</h3>
+        <div class="font-serif text-4xl font-black text-sumi mt-2">$89.000<span class="text-sm font-sans font-semibold text-sumi-muted">/mes</span></div>
+        <p class="text-sm text-sumi-muted mt-2">Ideal para estudiar por tu cuenta, a tu ritmo.</p>
+        <ul class="space-y-3 mt-6 mb-8 text-sm text-sumi-soft list-none p-0">
+          <li class="flex gap-2"><span class="text-salvia-dark font-black">✓</span> Acceso a todos los cursos y niveles</li>
+          <li class="flex gap-2"><span class="text-salvia-dark font-black">✓</span> Biblioteca, quizzes y glosario</li>
+          <li class="flex gap-2"><span class="text-salvia-dark font-black">✓</span> Seguimiento de progreso y notas</li>
+        </ul>
+        <button type="button" class="book-link mt-auto w-full border border-sumi/20 hover:border-salvia-dark text-sumi py-3.5 rounded-full text-sm font-extrabold transition">Empezar</button>
+      </div>
+      <!-- Intensivo (destacado) -->
+      <div class="relative bg-white rounded-3xl border-2 border-salvia-dark card-featured-shadow p-8 flex flex-col lg:-translate-y-3">
+        <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-salvia-dark text-white text-[11px] font-extrabold tracking-wide px-4 py-1.5 rounded-full whitespace-nowrap">★ MÁS RECOMENDADO</span>
+        <h3 class="font-serif text-2xl font-bold text-sumi">Intensivo</h3>
+        <div class="font-serif text-4xl font-black text-sumi mt-2">$169.000<span class="text-sm font-sans font-semibold text-sumi-muted">/mes</span></div>
+        <p class="text-sm text-sumi-muted mt-2">El equilibrio perfecto para avanzar rápido.</p>
+        <ul class="space-y-3 mt-6 mb-8 text-sm text-sumi-soft list-none p-0">
+          <li class="flex gap-2"><span class="text-salvia-dark font-black">✓</span> Todo lo del plan Autónomo</li>
+          <li class="flex gap-2"><span class="text-salvia-dark font-black">✓</span> 2 clases grupales en vivo por semana</li>
+          <li class="flex gap-2"><span class="text-salvia-dark font-black">✓</span> Tareas con retroalimentación del docente</li>
+          <li class="flex gap-2"><span class="text-salvia-dark font-black">✓</span> Foro y chat por curso</li>
+        </ul>
+        <button type="button" class="book-link mt-auto w-full bg-salvia-dark hover:bg-salvia-deep text-white py-3.5 rounded-full text-sm font-extrabold shadow-md transition">Agenda clase gratis</button>
+      </div>
+      <!-- Premium -->
+      <div class="bg-hanji rounded-3xl border border-sumi/10 card-zen-shadow p-8 flex flex-col">
+        <h3 class="font-serif text-2xl font-bold text-sumi">Premium 1 a 1</h3>
+        <div class="font-serif text-4xl font-black text-sumi mt-2">$329.000<span class="text-sm font-sans font-semibold text-sumi-muted">/mes</span></div>
+        <p class="text-sm text-sumi-muted mt-2">Atención personalizada y a tu horario.</p>
+        <ul class="space-y-3 mt-6 mb-8 text-sm text-sumi-soft list-none p-0">
+          <li class="flex gap-2"><span class="text-salvia-dark font-black">✓</span> Todo lo del plan Intensivo</li>
+          <li class="flex gap-2"><span class="text-salvia-dark font-black">✓</span> Clases privadas 1 a 1 a tu medida</li>
+          <li class="flex gap-2"><span class="text-salvia-dark font-black">✓</span> Ruta y certificación personalizadas</li>
+        </ul>
+        <button type="button" class="book-link mt-auto w-full border border-sumi/20 hover:border-salvia-dark text-sumi py-3.5 rounded-full text-sm font-extrabold transition">Hablar con un asesor</button>
+      </div>
+    </div>
+    <p class="text-xs text-sumi-muted text-center mt-8 max-w-xl mx-auto">Precios de referencia en pesos colombianos (COP), a modo de ejemplo del prototipo. Ajústalos a tu oferta real.</p>
+  </div>
+</section>
+
+<!-- ================= OPINIONES ================= -->
+<section id="opiniones" class="px-5 sm:px-6 py-16 sm:py-24">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mx-auto text-center mb-14">
+      <span class="text-xs font-bold tracking-[.2em] uppercase text-salvia-dark">Opiniones</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-black text-sumi mt-3">Lo que dicen nuestros estudiantes</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <figure class="bg-white rounded-2xl border border-sumi/10 card-zen-shadow p-7 m-0"><div class="font-serif text-5xl text-salvia leading-[0] h-6" aria-hidden="true">“</div><blockquote class="m-0"><p class="text-sumi leading-relaxed mt-4">Empecé sin saber en qué nivel estaba. El test me ubicó de una y en tres meses ya sostengo conversaciones en inglés.</p></blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="w-11 h-11 rounded-full bg-salvia-soft text-salvia-dark grid place-items-center font-serif font-bold">MC</span><span><b class="block text-sm text-sumi">María Camila</b><span class="text-xs text-sumi-muted">Inglés B1</span></span></figcaption></figure>
+      <figure class="bg-white rounded-2xl border border-sumi/10 card-zen-shadow p-7 m-0"><div class="font-serif text-5xl text-salvia leading-[0] h-6" aria-hidden="true">“</div><blockquote class="m-0"><p class="text-sumi leading-relaxed mt-4">Lo que más me gusta es estudiar a mi ritmo en la app y luego practicar en las clases en vivo. Avanzo muchísimo más rápido.</p></blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="w-11 h-11 rounded-full bg-salvia-soft text-salvia-dark grid place-items-center font-serif font-bold">JR</span><span><b class="block text-sm text-sumi">Julián Rodríguez</b><span class="text-xs text-sumi-muted">Francés A2</span></span></figcaption></figure>
+      <figure class="bg-white rounded-2xl border border-sumi/10 card-zen-shadow p-7 m-0"><div class="font-serif text-5xl text-salvia leading-[0] h-6" aria-hidden="true">“</div><blockquote class="m-0"><p class="text-sumi leading-relaxed mt-4">Los quizzes y el glosario me ayudaron a no olvidar el vocabulario. Se siente como un juego, pero aprendes de verdad.</p></blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="w-11 h-11 rounded-full bg-salvia-soft text-salvia-dark grid place-items-center font-serif font-bold">AT</span><span><b class="block text-sm text-sumi">Andrea Torres</b><span class="text-xs text-sumi-muted">Portugués A1</span></span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section id="contacto" class="px-5 sm:px-6 py-16 sm:py-24">
+  <div class="max-w-4xl mx-auto bg-salvia-dark rounded-[2rem] px-6 sm:px-12 py-14 text-center relative overflow-hidden">
+    <div class="absolute -right-6 -bottom-12 font-serif font-black text-[30vw] sm:text-[180px] text-white opacity-[0.07] select-none pointer-events-none leading-none">공부</div>
+    <div class="relative z-10">
+      <span class="text-xs font-bold tracking-[.2em] uppercase text-salvia-soft">Tu primer paso es gratis</span>
+      <h2 class="font-serif text-3xl sm:text-5xl font-black text-white mt-3">Agenda tu clase de prueba hoy</h2>
+      <p class="text-salvia-soft/90 max-w-lg mx-auto mt-4 leading-relaxed">Descubre tu nivel, conoce a tus profesores y prueba el aplicativo sin costo. Sin compromiso.</p>
+      <div class="flex flex-wrap gap-3 justify-center mt-8">
+        <button type="button" class="book-link bg-white text-salvia-dark px-8 py-4 rounded-full text-sm font-extrabold shadow-lg hover:bg-salvia-soft transition">Agenda tu clase gratis</button>
+        <a href="#" class="app-link inline-flex items-center border border-white/40 hover:bg-white/10 text-white px-8 py-4 rounded-full text-sm font-extrabold transition" target="_blank" rel="noopener">Entrar al aplicativo →</a>
+      </div>
+      <p class="text-sm text-salvia-soft/90 mt-7">WhatsApp: <b class="text-white">+57 320 918 7480</b> · también <b class="text-white">320 917 6356</b> · <b class="text-white">828 2405</b> &nbsp;·&nbsp; Instagram <b class="text-white">@yiko.moraortega</b></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-sumi text-white/70 px-5 sm:px-6 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div class="col-span-2 md:col-span-1">
+      <div class="flex items-center gap-2 text-white font-serif font-black text-xl mb-3"><span class="w-9 h-9 rounded-full border-2 border-white grid place-items-center text-[11px]">공부</span>GONGBU</div>
+      <p class="text-sm leading-relaxed max-w-[34ch]">Educación vivencial. Aprende idiomas con método propio y plataforma integrada: inglés, francés, portugués e italiano.</p>
+    </div>
+    <nav aria-label="Programas"><h4 class="text-white text-xs font-bold uppercase tracking-[.14em] mb-4">Programas</h4><a href="#programas" class="block py-1 text-sm hover:text-white">Inglés</a><a href="#programas" class="block py-1 text-sm hover:text-white">Francés</a><a href="#programas" class="block py-1 text-sm hover:text-white">Portugués</a><a href="#programas" class="block py-1 text-sm hover:text-white">Italiano</a></nav>
+    <nav aria-label="Academia"><h4 class="text-white text-xs font-bold uppercase tracking-[.14em] mb-4">Academia</h4><a href="#metodo" class="block py-1 text-sm hover:text-white">Método</a><a href="#plataforma" class="block py-1 text-sm hover:text-white">Plataforma</a><a href="#planes" class="block py-1 text-sm hover:text-white">Planes</a><a href="#opiniones" class="block py-1 text-sm hover:text-white">Opiniones</a></nav>
+    <nav aria-label="Contacto"><h4 class="text-white text-xs font-bold uppercase tracking-[.14em] mb-4">Contacto</h4><a href="https://wa.me/573209187480" target="_blank" rel="noopener" class="block py-1 text-sm hover:text-white">WhatsApp</a><a href="https://instagram.com/yiko.moraortega" target="_blank" rel="noopener" class="block py-1 text-sm hover:text-white">@yiko.moraortega</a><a href="#" class="app-link block py-1 text-sm hover:text-white" target="_blank" rel="noopener">Ingresar al aplicativo</a></nav>
+  </div>
+  <div class="max-w-7xl mx-auto border-t border-white/15 mt-10 pt-6 flex flex-wrap justify-between gap-3 text-xs"><span>© 2026 GONGBU · Prototipo demostrativo</span><span>Garagoa · Colombia</span></div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/573209187480" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" class="fixed right-5 bottom-5 z-40 w-14 h-14 rounded-full bg-[#1FA855] text-white grid place-items-center shadow-xl hover:scale-105 transition">
+  <svg viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2zm0 18.02c-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+</a>
+
+<!-- ================= MODAL ================= -->
+<div id="bookingModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+  <div class="absolute inset-0 bg-sumi/60 backdrop-blur-sm" data-close></div>
+  <div class="relative bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl">
+    <button type="button" data-close aria-label="Cerrar" class="absolute top-4 right-4 w-9 h-9 grid place-items-center rounded-lg border border-sumi/10 text-sumi-muted hover:bg-hanji text-xl leading-none">&times;</button>
+    <div id="formWrap">
+      <h3 class="font-serif text-2xl font-bold text-sumi" id="modalTitle">Agenda tu clase gratis</h3>
+      <p class="text-sm text-sumi-muted mt-1">Déjanos tus datos y te escribimos por WhatsApp para ubicarte en tu nivel.</p>
+      <form id="bookForm" class="space-y-4 mt-6" novalidate>
+        <label class="block text-sm font-semibold text-sumi">Nombre
+          <input id="bf-name" type="text" required autocomplete="name" class="mt-1.5 w-full p-3 border border-sumi/15 rounded-xl text-sm bg-hanji focus:border-salvia-dark focus:outline-none">
+        </label>
+        <label class="block text-sm font-semibold text-sumi">Idioma de interés
+          <select id="bf-lang" class="mt-1.5 w-full p-3 border border-sumi/15 rounded-xl text-sm bg-hanji focus:border-salvia-dark focus:outline-none">
+            <option>Inglés</option><option>Francés</option><option>Portugués</option><option>Italiano</option>
+          </select>
+        </label>
+        <label class="block text-sm font-semibold text-sumi">WhatsApp o correo
+          <input id="bf-contact" type="text" required class="mt-1.5 w-full p-3 border border-sumi/15 rounded-xl text-sm bg-hanji focus:border-salvia-dark focus:outline-none">
+        </label>
+        <button type="submit" class="w-full bg-salvia-dark hover:bg-salvia-deep text-white py-3.5 rounded-xl font-extrabold text-sm transition">Solicitar mi clase</button>
+      </form>
+    </div>
+    <div id="okWrap" class="hidden text-center py-2">
+      <div class="w-14 h-14 rounded-full bg-salvia-soft text-salvia-dark grid place-items-center mx-auto mb-4 text-2xl font-black">✓</div>
+      <h4 class="font-serif text-xl font-bold text-sumi">¡Solicitud lista!</h4>
+      <p class="text-sm text-sumi-muted mt-2 mb-5 max-w-[34ch] mx-auto">Para confirmar al instante, continúa por WhatsApp con tus datos ya cargados.</p>
+      <a id="book-wa" href="https://wa.me/573209187480" target="_blank" rel="noopener" class="block w-full bg-[#1FA855] text-white py-3.5 rounded-xl font-extrabold text-sm">Abrir WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="fixed left-1/2 -translate-x-1/2 bottom-6 z-[60] bg-sumi text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-xl opacity-0 translate-y-2 pointer-events-none transition-all">Solicitud registrada ✓</div>
+
+<script>
+"use strict";
+// Enlace al aplicativo: artefacto en claude.ai, app.html al lado en GitHub Pages/local.
+var APP_URL=(location.hostname.indexOf('claude')!==-1)?"https://claude.ai/artifact/Fg647qMEKuFhgVkfokvCba":"app.html";
+document.querySelectorAll('.app-link').forEach(function(a){a.setAttribute('href',APP_URL);});
+
+var modal=document.getElementById('bookingModal'), lastFocus=null;
+var formWrap=document.getElementById('formWrap'), okWrap=document.getElementById('okWrap'), bform=document.getElementById('bookForm');
+function openModal(){
+  lastFocus=document.activeElement;
+  bform.reset(); formWrap.classList.remove('hidden'); okWrap.classList.add('hidden');
+  modal.classList.remove('hidden'); modal.classList.add('flex');
+  var f=document.getElementById('bf-name'); if(f) setTimeout(function(){f.focus();},30);
+  document.addEventListener('keydown',onKey);
+}
+function closeModal(){
+  modal.classList.add('hidden'); modal.classList.remove('flex');
+  document.removeEventListener('keydown',onKey);
+  if(lastFocus&&lastFocus.focus) lastFocus.focus();
+}
+function onKey(e){
+  if(e.key==='Escape'){closeModal();return;}
+  if(e.key==='Tab'){
+    var f=[].filter.call(modal.querySelectorAll('button,[href],input,select'),function(el){return el.offsetParent!==null;});
+    if(!f.length)return; var a=f[0],b=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===a){e.preventDefault();b.focus();}
+    else if(!e.shiftKey&&document.activeElement===b){e.preventDefault();a.focus();}
+  }
+}
+document.querySelectorAll('.book-link').forEach(function(b){b.addEventListener('click',openModal);});
+modal.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',closeModal);});
+
+function toast(){var t=document.getElementById('toast');t.classList.remove('opacity-0','translate-y-2');setTimeout(function(){t.classList.add('opacity-0','translate-y-2');},2600);}
+bform.addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!bform.checkValidity()){bform.reportValidity();return;}
+  var name=document.getElementById('bf-name').value.trim();
+  var lang=document.getElementById('bf-lang').value;
+  var contact=document.getElementById('bf-contact').value.trim();
+  var txt='Hola GONGBU, soy '+name+'. Quiero una clase gratis de '+lang+'.';
+  if(contact) txt+=' Mi contacto: '+contact+'.';
+  document.getElementById('book-wa').setAttribute('href','https://wa.me/573209187480?text='+encodeURIComponent(txt));
+  formWrap.classList.add('hidden'); okWrap.classList.remove('hidden'); toast();
+  var wa=document.getElementById('book-wa'); if(wa) setTimeout(function(){wa.focus();},30);
+});
+</script>
+</body>
+</html>
